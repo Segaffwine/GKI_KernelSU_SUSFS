@@ -560,7 +560,7 @@ jobs:
           fi
 
           if [[ "${{ inputs.android_version }}" == "android15" && "${{ inputs.kernel_version }}" == "6.6" ]]; then
-            if [[ "$CURRENT_SUB" -le 30 ]] && ! grep -qF 'last_vma_end = vma->vm_end;' fs/proc/task_mmu.c; then
+            if [[ "$CURRENT_SUB" -le 60 ]] && ! grep -qF 'last_vma_end = vma->vm_end;' fs/proc/task_mmu.c; then
               echo "临时调整 Android 15 6.6 task_mmu.c 上下文"
               sed -i '/smap_gather_stats(vma, &mss, last_vma_end);/a\last_vma_end = vma->vm_end;' fs/proc/task_mmu.c
             fi
