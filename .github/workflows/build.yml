@@ -82,7 +82,7 @@ on:
         type: boolean
         default: false
       add_zeromount:
-        required: false
+        required: true
         type: boolean
         default: false
       add_selinux_evasion:
